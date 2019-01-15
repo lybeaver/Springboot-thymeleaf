@@ -1,21 +1,18 @@
 new Vue({
-    el:"#app",
+    el:"#menu2",
     data:{
         tabMenus:[],
         asizeMenus:[],
-        activeIndex: '/menu1',
+        tabPosition: 'top',
+        activeIndex: '/menu2',
     },
     methods: {
         handleClick(tab, event) {
           console.log(tab, event);
         },
         handleSelect(key, keyPath) {
-          console.log("11111",key, keyPath);
-          console.log(typeof(key));
-          window.location.href="/home"+key; 
-//          axios.get(key)
-//          .then(function (response) {
-//            // handle success
+          console.log(key, keyPath);
+//          axios.get(key).then(function (response) {
 //            console.log(response);
 //          })
         }
