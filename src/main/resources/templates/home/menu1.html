@@ -3,7 +3,7 @@
     <head>
     	<meta charset="UTF-8"/>
         <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-        <link rel="stylesheet" th:href="~/css/common/common.css?version=0.7">
+        <link rel="stylesheet" th:href="@{~/css/common/common.css?version=0.7}">
         <script th:src="@{~/js/common/jquery.js}"></script>
         <script th:src="@{~/js/common/vue.js}"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -16,11 +16,11 @@
             <aside th:replace="common::left-panel"></aside>
             <div id="right-panel">
                 <section id="main-content">
-                <p>menu2</p>
+                <p>menu1</p>
                 </section>
                 <footer th:replace="common::footer"></footer>
             </div>
         </div>
-        <script th:src="@{~/js/menu1.js?version=0.1}"></script>
+        <script th:src="@{~/js/menu1.js?version=0.2}"></script>
     </body>
 </html> 

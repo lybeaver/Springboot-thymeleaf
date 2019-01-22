@@ -12,6 +12,7 @@ new Vue({
         },
         handleSelect(key, keyPath) {
           console.log(key, keyPath);
+          window.location.href="/home"+key; 
 //          axios.get(key).then(function (response) {
 //            console.log(response);
 //          })

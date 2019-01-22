@@ -12,7 +12,7 @@ new Vue({
         },
         handleSelect(key, keyPath) {
           console.log(key, keyPath);
-          window.location.href="/home/menu1"; 
+          window.location.href="/home"+key; 
         }
       }
 });

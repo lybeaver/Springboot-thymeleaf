@@ -6,7 +6,6 @@ html, body, body div:nth-child(1) {
 	height: 100%;
 }
 
-/* body >div:first-child */
 .el-menu-item-group__title {
     line-height: normal;
     font-size: 16px;

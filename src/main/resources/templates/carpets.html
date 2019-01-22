@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    	<meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">                         
+	    <!-- Magnific popup style (http://dimsemenov.com/plugins/magnific-popup/) -->
+	    <link rel="stylesheet" th:href="@{~/css/tooplate-style.css?version=0.7}">   
+        <script th:src="@{~/js/common/jquery.js}"></script>
+        <script th:src="@{~/js/common/vue.js}"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+        <title>商品</title>
+        <style>
+        	body {
+			    margin: 0;
+			    background-color: #f2f2f2;
+			}
+			
+			/* html, body, body div:nth-child(1) {
+				height: 100%;
+			} */
+			
+			.el-header, .el-footer {
+			    background-color: #f2f2f2;
+			    color: #333;
+			    text-align: center;
+			    line-height: 60px;
+			 }
+			  
+			.el-header-menu .el-menu {
+			    padding-left: 10rem;
+			}
+			
+			.img-container {
+				text-align: center;
+				max-width: 1440px;
+				height: 100%;
+			}
+			
+			.el-dialog__body {
+			    text-align: center;
+			}
+				
+			.allow-left .allow-right {
+				margin:0;
+			}
+				
+			.left-button {
+				float: left;
+				cursor:pointer;
+				line-height:60px;
+				margin-left: 8rem;
+				margin-top: 15rem;
+			}
+			
+			.main-content {
+				margin:0px auto;
+				min-width:500px;
+				min-height:500px;
+			}
+			
+			.right-button {
+				float: right;
+				cursor:pointer;
+				line-height:60px;
+				margin-right: 8rem;
+				margin-top: 15rem;
+			}
+			
+			.main-body {
+				margin:auto;
+			}
+			
+			.small-img {
+				width:10%;
+				height:10%;
+				cursor:pointer;
+			}
+			
+			.el-dialog {
+				min-width:850px;
+			}
+        </style>
+    </head>
+    <body>
+        <div id="carpets">
+        	<el-container>
+	            <el-header></el-header>
+	            <nav>
+	            	<div class="el-header-menu"> 
+	                    <el-menu class="el-menu-demo" mode="horizontal" v-on:select="handleSelect" 
+	                        background-color="#545c64"
+	                        text-color="#fff"
+	                        active-text-color="#ffd04b"
+	                        :default-active="activeIndex"
+	                        >
+	                        <el-menu-item  index="/carpet">HOME</el-menu-item>
+	                        <el-menu-item  index="/contact">CONTANT</el-menu-item>
+	                    </el-menu>
+	                </div>
+	            </nav>
+	            <div style="margin-top: 1rem;">
+		            <div class="img-container">
+					 	 <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                         	 <a v-on:click="dialogVisible = true">
+	                             	<img src="img/tm-img-01-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             </a>
+		                         <figcaption>
+		                             <p class="tm-figure-description">1.Lorem</p>
+		                         </figcaption>   
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-02-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">2.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-03-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">3.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-04-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">4.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>  
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-05-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">5.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-06-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">6.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-07-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">7.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-08-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">8.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>   
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-09-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">9.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-10-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">10.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-11-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">11.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-12-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">12.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-13-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">13.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-14-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">14.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-15-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">15.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+	                     <div class="grid-item">
+	                         <figure class="effect-bubba">
+	                             <img src="img/tm-img-16-tn.jpg" alt="Image" class="img-fluid tm-img">
+	                             <figcaption>
+		                             <p class="tm-figure-description">16.Lorem</p>
+		                         </figcaption>
+	                         </figure>
+	                     </div>
+		            </div>
+	            </div>
+	            <el-footer>Copyright @ 2018 nextosd.com All Rights Reserved.</el-footer>
+            </el-container>
+            <el-dialog title="商品详情" :visible.sync="dialogVisible" width="60%">
+              <div class="main-body">
+				  <div id="leftButton" class="left-button"><img src="icon/left.png" alt="left" ></div>
+				  <div id="rightButton" class="right-button"><img src="icon/right.png" alt="right"></div>
+				  <div id="mainContent" class="main-content"><img src="img/tm-img-01.jpg" alt="Image" style="width:50%;height:50%"></div>
+              </div>
+              <div id="smallimg">
+				<img src="img/tm-img-01.jpg" class="small-img"/>
+				<img src="img/tm-img-02.jpg" class="small-img"/>
+				<img src="img/tm-img-03.jpg" class="small-img"/>
+				<img src="img/tm-img-04.jpg" class="small-img"/>
+				<img src="img/tm-img-05.jpg" class="small-img"/>
+				<img src="img/tm-img-06.jpg" class="small-img"/>
+			  </div>
+			  <span slot="footer" class="dialog-footer">
+			    <el-button v-on:click="dialogVisible = false">取 消</el-button>
+			    <el-button type="primary" v-on:click="dialogVisible = false">确 定</el-button>
+			  </span>
+			</el-dialog>
+        </div>
+        <script th:src="@{~/js/carpets.js?version=0.4}"></script>
+    </body>
+</html> 
