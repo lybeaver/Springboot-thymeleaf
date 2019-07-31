@@ -3,237 +3,41 @@ new Vue({
     data:{
         activeIndex: '/carpets',
         dialogVisible: false,
-        items:[
-        		{	
-        			id:"1001",
-        			thumbnail:"img/tm-img-01-tn.jpg",
-        			originalImage:"img/tm-img-01.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-01.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{
-        			id:"1002",
-        			thumbnail:"img/tm-img-02-tn.jpg",
-        			originalImage:"img/tm-img-02.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-02.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{	
-        			id:"1003",
-        			thumbnail:"img/tm-img-03-tn.jpg",
-        			originalImage:"img/tm-img-03.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-03.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{
-        			id:"1004",
-        			thumbnail:"img/tm-img-04-tn.jpg",
-        			originalImage:"img/tm-img-04.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-04.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{	
-        			id:"1005",
-        			thumbnail:"img/tm-img-05-tn.jpg",
-        			originalImage:"img/tm-img-05.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-05.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{
-        			id:"1006",
-        			thumbnail:"img/tm-img-06-tn.jpg",
-        			originalImage:"img/tm-img-06.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-06.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{	
-        			id:"1007",
-        			thumbnail:"img/tm-img-07-tn.jpg",
-        			originalImage:"img/tm-img-07.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-07.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{
-        			id:"1008",
-        			thumbnail:"img/tm-img-08-tn.jpg",
-        			originalImage:"img/tm-img-08.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-08.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{	
-        			id:"1009",
-        			thumbnail:"img/tm-img-09-tn.jpg",
-        			originalImage:"img/tm-img-09.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-09.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{
-        			id:"1010",
-        			thumbnail:"img/tm-img-10-tn.jpg",
-        			originalImage:"img/tm-img-10.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-10.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{	
-        			id:"1011",
-        			thumbnail:"img/tm-img-11-tn.jpg",
-        			originalImage:"img/tm-img-11.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-11.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{
-        			id:"1012",
-        			thumbnail:"img/tm-img-12-tn.jpg",
-        			originalImage:"img/tm-img-12.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-12.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{	
-        			id:"1013",
-        			thumbnail:"img/tm-img-13-tn.jpg",
-        			originalImage:"img/tm-img-13.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-13.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{
-        			id:"1014",
-        			thumbnail:"img/tm-img-14-tn.jpg",
-        			originalImage:"img/tm-img-14.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-14.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{	
-        			id:"1015",
-        			thumbnail:"img/tm-img-15-tn.jpg",
-        			originalImage:"img/tm-img-15.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-15.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        		{
-        			id:"1016",
-        			thumbnail:"img/tm-img-16-tn.jpg",
-        			originalImage:"img/tm-img-16.jpg",
-        			childImage:{
-	        			activeImg:"img/tm-img-16.jpg",
-	        			list: [  
-	        					 "img/tm-img-01.jpg","img/tm-img-02.jpg","img/tm-img-03.jpg","img/tm-img-04.jpg"
-	            				,"img/tm-img-05.jpg","img/tm-img-06.jpg","img/tm-img-07.jpg","img/tm-img-08.jpg"
-	            				,"img/tm-img-09.jpg","img/tm-img-10.jpg","img/tm-img-11.jpg","img/tm-img-12.jpg"
-	            				,"img/tm-img-13.jpg","img/tm-img-14.jpg","img/tm-img-15.jpg","img/tm-img-16.jpg"
-	            			]
-        			}
-        		},
-        	  ],
+        albumVisible: false,
+        fileList: [],
+        form: {
+        	name: "",
+        	activeImageUrl: ""
+        },
+        originalImages: [],
+        items:[],
+        //item: {id:'',originalImage:'',childImage:{activeImg:'',list:[]}},
         dialogChildImg: {},
         isNext: true,
         isPre: true
     },
+    mounted:function() {
+  	  console.log("mounted");
+  	  let list = $('#imgList').val();
+  	  let data = JSON.parse(list) || [];
+  	  let tempArr = [];
+  	  //this.items = data;
+  	  console.log(typeof(list));
+  	  console.log(list);
+  	  data.forEach(function(currentValue,index){
+  		  currentValue.activeImageUrl = '../img/' + currentValue.activeImageUrl;
+  		  tempArr.push(currentValue);
+  		  console.log("currentValue currentValue",currentValue);
+  	  });
+  	  this.items = tempArr;
+  	},
     methods: {
+    	beforeMount() {
+    	  console.log("beforeMount");
+    	},
+    	updated() {
+    	  console.log("updated");
+    	},
         handleClick(tab, event) {
           console.log(tab, event);
         },
@@ -280,6 +84,27 @@ new Vue({
             		 this.isPre = true;
             		 this.isNext = true;
             	 }
+        	 }
+         },
+         submitUpload() {
+        	 axios.post('/carpet/saveCommodity',{name:this.form.name, activeImageUrl:this.form.activeImageUrl, originalImages:this.originalImages}
+        	 ).then(function (response) {
+        	     if (response.data == 'success') {
+        	    	 window.location.href = '/carpet/list';
+        	     }
+        	 }).catch(function (error) {
+        	     console.log(error);
+        	 })
+         },
+         handleRemove(file, fileList) {
+        	 console.log(file, fileList);
+         },
+         handlePreview(file) {
+        	 console.log(file);
+         },
+         handleSuccess(response, file, fileList) {
+        	 if (file.status == 'success') {
+        		 this.originalImages.push(response);
         	 }
          }
       }

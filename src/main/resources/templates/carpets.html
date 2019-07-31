@@ -9,6 +9,7 @@
         <script th:src="@{~/js/common/vue.js}"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+        <script src="https://cdn.bootcss.com/qs/6.7.0/qs.min.js"></script>
         <title>商品</title>
         <style>
         	body {
@@ -32,6 +33,7 @@
 			}
 			
 			.img-container {
+				margin:0px auto; /* 浮动的div居中设置该项  */
 				text-align: center;
 				max-width: 1440px;
 				height: 100%;
@@ -75,12 +77,18 @@
 				width:10%;
 				height:10%;
 				cursor:pointer;
+				border-style: solid;
+				border-color: #fff #fff #fff #fff
 			}
+			
 			.small-img-active {
 				width:10%;
 				height:10%;
 				cursor:pointer;
+				border-style: solid;
+				border-color: #ff0000 #00ff00 #0000ff rgb(250,0,255)
 			}
+			
 			.el-dialog {
 				min-width:850px;
 			}
@@ -103,24 +111,30 @@
 	                    </el-menu>
 	                </div>
 	            </nav>
-	            <div style="margin-top: 1rem;">
+	            <div style="margin-top: 1rem;text-align: center;">
+	            	<div style="text-align: right;margin-right: 1rem">
+		            	<el-button type="primary" v-on:click="albumVisible = true,originalImages = [],form.name = '',form.activeImageUrl = ''">创建相册</el-button>
+	            	</div>
+	            	<input id="imgList" type="hidden" th:value="${items}">
 		            <div class="img-container">
 		            	<template v-for="(item, index) in items">
 		            		<div class="grid-item">
 		                         <figure class="effect-bubba">
 		                         	 <a v-on:click="dialogVisible = true,initDialog(item.childImage)">
-		                             	<img v-bind:src="item.thumbnail" alt="Image" class="img-fluid tm-img">
+		                             	<img v-bind:src="item.activeImageUrl" alt="Image" class="img-fluid tm-img">
 		                             </a>
 			                         <figcaption>
-			                             <p class="tm-figure-description">{{ index+1 }}.Lorem</p>
+			                             <p class="tm-figure-description">{{ item.name }}</p>
 			                         </figcaption>   
 		                         </figure>
 	                     	</div>
 		            	</template>
 		            </div>
+		            <div style="clear:both"></div>
 	            </div>
 	            <el-footer>Copyright @ 2018 nextosd.com All Rights Reserved.</el-footer>
             </el-container>
+            
             <el-dialog title="商品详情" :visible.sync="dialogVisible" width="60%">
               <div class="main-body">
 				  <div id="leftButton" class="left-button" v-on:click="preImg(dialogChildImg)">
@@ -134,21 +148,49 @@
 				  <div id="mainContent" class="main-content"><img v-bind:src="dialogChildImg.activeImg" alt="Image" style="width:50%;height:50%"></div>
               </div>
               <div id="smallimg">
-              <template v-for="(item, index) in dialogChildImg.list">
-              	<template v-if="item === dialogChildImg.activeImg">
-              		<img v-bind:src="item" class="small-img-active" v-on:click="doActiveImg(item)"/>
-              	</template>
-              	<template v-else>
-              		<img v-bind:src="item" class="small-img" v-on:click="doActiveImg(item)"/>
-              	</template>
-              </template>
+	              <template v-for="(item, index) in dialogChildImg.list">
+	              	<template v-if="item === dialogChildImg.activeImg">
+	              		<img v-bind:src="item" class="small-img-active" v-on:click="doActiveImg(item)"/>
+	              	</template>
+	              	<template v-else>
+	              		<img v-bind:src="item" class="small-img" v-on:click="doActiveImg(item)"/>
+	              	</template>
+	              </template>
 			  </div>
 			  <span slot="footer" class="dialog-footer">
 			    <el-button v-on:click="dialogVisible = false">取 消</el-button>
 			    <el-button type="primary" v-on:click="dialogVisible = false">确 定</el-button>
 			  </span>
 			</el-dialog>
+			
+			 <el-dialog title="创建相册" :visible.sync="albumVisible" width="60%">
+				 <el-form ref="form" :model="form" label-width="80px">
+				 	<el-form-item label="相册名称">
+				    	<el-input v-model="form.name"></el-input>
+				  	</el-form-item>
+				  	<el-form-item label="封面图片">
+				    	<el-input v-model="form.activeImageUrl" :disabled="true"></el-input>
+				  	</el-form-item>
+				  </el-form>
+				  <el-upload
+					  class="upload-demo"
+					  action="/carpet/upload"
+					  :on-preview="handlePreview"
+					  :on-remove="handleRemove"
+					  :on-success="handleSuccess"
+					  :file-list="fileList"
+					  list-type="picture"
+					  :multiple="true"
+					  :auto-upload="true">
+					  <el-button size="small" type="primary">选取文件</el-button>
+					  <span slot="tip" class="el-upload__tip">只能上传jpg/png文件</span>
+				</el-upload>
+			  	<span slot="footer" class="dialog-footer">
+			    	<el-button v-on:click="albumVisible = false, fileList = []">取 消</el-button>
+			    	<el-button type="primary" v-on:click="submitUpload">创 建</el-button>
+			  	</span>
+			</el-dialog>
         </div>
-        <script th:src="@{~/js/carpets.js?version=0.1}"></script>
+        <script th:src="@{~/js/carpets.js?version=1.2}"></script>
     </body>
 </html> 
