@@ -120,7 +120,7 @@
 		            	<template v-for="(item, index) in items">
 		            		<div class="grid-item">
 		                         <figure class="effect-bubba">
-		                         	 <a v-on:click="dialogVisible = true,initDialog(item.childImage)">
+		                         	 <a v-on:click="dialogVisible = true,getChildImages(item.id,item.activeImageUrl)">
 		                             	<img v-bind:src="item.activeImageUrl" alt="Image" class="img-fluid tm-img">
 		                             </a>
 			                         <figcaption>
@@ -138,12 +138,12 @@
             <el-dialog title="商品详情" :visible.sync="dialogVisible" width="60%">
               <div class="main-body">
 				  <div id="leftButton" class="left-button" v-on:click="preImg(dialogChildImg)">
-				  	 <template v-if="isPre"><img src="icon/left.png" alt="left" ></template>
-				  	 <template v-else><img src="icon/left_light.png" alt="left" ></template>
+				  	 <template v-if="isPre"><img src="../icon/left.png" alt="left" ></template>
+				  	 <template v-else><img src="../icon/left_light.png" alt="left" ></template>
 				  </div>
 				  <div id="rightButton" class="right-button" v-on:click="nextImg(dialogChildImg)">
-					  <template v-if="isNext"><img src="icon/right.png" alt="right"></template>
-					  <template v-else><img src="icon/right_light.png" alt="right"></template>
+					  <template v-if="isNext"><img src="../icon/right.png" alt="right"></template>
+					  <template v-else><img src="../icon/right_light.png" alt="right"></template>
 				  </div>
 				  <div id="mainContent" class="main-content"><img v-bind:src="dialogChildImg.activeImg" alt="Image" style="width:50%;height:50%"></div>
               </div>
@@ -191,6 +191,6 @@
 			  	</span>
 			</el-dialog>
         </div>
-        <script th:src="@{~/js/carpets.js?version=1.2}"></script>
+        <script th:src="@{~/js/carpets.js?version=1.7}"></script>
     </body>
 </html> 

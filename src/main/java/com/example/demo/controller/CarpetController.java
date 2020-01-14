@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.example.demo.dto.Commodity;
@@ -91,5 +92,16 @@ public class CarpetController {
 		Commodity commodity = commodityImage;
 		commodityService.addCommodity(commodity, commodityImage.getOriginalImages());
 		return "success";
+	}	
+	
+	@GetMapping(value = "/getCommodityByParentId/{id}")
+	@ResponseBody
+	public String getCommodityByParentId(@PathVariable("id") String id) {
+		List<Commodity> list = commodityService.getCommodityByParentId(id);
+		String json = "";
+		if (!CollectionUtils.isEmpty(list)) {
+			json = JSONObject.toJSONString(list,SerializerFeature.WriteNullStringAsEmpty);
+		}
+		return json;
 	}
 }

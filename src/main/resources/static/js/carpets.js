@@ -53,7 +53,10 @@ new Vue({
               .catch(_ => {});
          },
          doActiveImg(item) {
+        	 console.log('item item',item);
         	 this.dialogChildImg.activeImg = item;
+        	 console.log('dialogChildImg dialogChildImg',this.dialogChildImg);
+        	 console.log('activeImg activeImg',this.dialogChildImg.activeImg==='../img/fc30479ceabb4351b7a9b1520132e329.jpeg');
         	 this.initDialog(this.dialogChildImg);
          },
          preImg(dialogChildImg) {
@@ -69,7 +72,7 @@ new Vue({
         	 }
          },
          initDialog(childImage) {
-        	 this.dialogChildImg = childImage;
+        	 //this.dialogChildImg.list = childImage.list;
         	 if (childImage.list.length == 1) {
         		 this.isPre = false;
         		 this.isNext = false;
@@ -85,6 +88,31 @@ new Vue({
             		 this.isNext = true;
             	 }
         	 }
+         },
+         getChildImages(parentId,activeImg) {
+        	 var _this = this;
+        	 axios.get('/carpet/getCommodityByParentId/'+parentId)
+        	  .then((response)=> {
+        		  if (response.data) {
+        			  let data = response.data || [];
+        			  let childImgs = [];
+        			  let childTemp = {};
+        			  _this.dialogChildImg = {};
+        			  _this.dialogChildImg.activeImg = activeImg ? activeImg : data[0];
+        			  data.forEach(function(value, index) {
+        				  childImgs.push('../img/'+value.originalImageUrl);
+        			  });
+        			  _this.dialogChildImg.list = childImgs;
+//        			  childTemp.list = childImgs;
+//        			  childTemp.activeImg = this.dialogChildImg.activeImg;
+        			  _this.initDialog(_this.dialogChildImg);
+        		  }
+        	    console.log(response);
+        	  })
+        	  .catch((error)=> {
+        	    console.log(error);
+        	  });
+        	 console.log("child",this.dialogChildImg);
          },
          submitUpload() {
         	 axios.post('/carpet/saveCommodity',{name:this.form.name, activeImageUrl:this.form.activeImageUrl, originalImages:this.originalImages}
